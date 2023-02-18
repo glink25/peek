@@ -1,7 +1,6 @@
 import { defineComponent, h, nextTick } from "vue"
+import type { Content } from "../content";
 import { createProvider } from "../overlay"
-import { Content } from "../utils/content"
-import { keys } from "../utils/key";
 import ConfirmProvider from "./ConfirmProvider.vue";
 
 

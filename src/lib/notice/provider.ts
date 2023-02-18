@@ -1,6 +1,6 @@
 import { defineComponent, h } from "vue"
 import { createProvider } from "../overlay"
-import { Content } from "../utils/content"
+import type { Content } from "../content"
 import NoticeProvider from "./NoticeProvider.vue";
 
 export type NoticeType = 'success' | 'warning' | 'info' | 'error'
