@@ -1,8 +1,5 @@
-// import ConfirmProvider from "./ConfirmProvider.vue"
-
-// export default ConfirmProvider;
-// export * from "./confirm"
-
-import { useConfirmProvider } from "../../lib"
-
-export const { provider: ConfirmProvider, showConfirm } = useConfirmProvider()
+import { useConfirmProvider, ConfirmProvider } from "lib"
+export {
+    ConfirmProvider
+}
+export const { bindings, showConfirm } = useConfirmProvider()

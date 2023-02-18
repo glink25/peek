@@ -18,6 +18,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+       "lib": [
+        "./src/lib/index.ts"
       ]
     },
   },

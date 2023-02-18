@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ConfirmProvider } from '@/components/confirm';
-import { NoticeProvider } from '@/components/notice';
+import { ConfirmProvider, bindings as confirmBindings } from '@/components/confirm';
+import { NoticeProvider, bindings as noticeBindings } from '@/components/notice';
 
 </script>
 
 <template>
   <RouterView />
-  <NoticeProvider></NoticeProvider>
-  <ConfirmProvider>
+  <NoticeProvider :bindings="noticeBindings"></NoticeProvider>
+  <ConfirmProvider :bindings="confirmBindings">
     <template #closeButton="{ close }">
       <button class="icon icon-button" @click="close()">
         <div class="i-mdi:close"></div>
@@ -17,7 +17,7 @@ import { NoticeProvider } from '@/components/notice';
       <button
         class="rounded px-2 py-1 transition-all mr-1 text-stone-600 hover:bg-stone-100 active:!bg-stone-200 last:font-bold"
         @click="select()">
-        {{ selection?.label?? selection }}</button>
+        {{ selection?.label ?? selection }}</button>
     </template>
   </ConfirmProvider>
 </template>

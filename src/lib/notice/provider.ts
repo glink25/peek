@@ -1,5 +1,5 @@
 import { defineComponent, h } from "vue"
-import { createProvider } from "../overlay"
+import { Binding, createProvider } from "../overlay"
 import type { Content } from "../content"
 import NoticeProvider from "./NoticeProvider.vue";
 
@@ -18,14 +18,9 @@ export const useNoticeProvider = () => {
         }, mergedOption.timeout);
     }
 
-    const provider = defineComponent({
-        setup: () => {
-            return () => h(NoticeProvider as any, { bindings: bindings.value })
-        }
-    })
-
     return {
-        showNotice, provider
+        showNotice,
+        bindings: bindings as unknown as Binding<Required<NoticeOption>>[]
     }
 
 }

@@ -1,7 +1,6 @@
-import { defineComponent, h, nextTick } from "vue"
+import { nextTick } from "vue"
 import type { Content } from "../content";
-import { createProvider } from "../overlay"
-import ConfirmProvider from "./ConfirmProvider.vue";
+import { Binding, createProvider } from "../overlay"
 
 
 export type Selections<V = any> = (readonly string[]) | (readonly { label: string, value: V, entering?: () => Promise<any> }[])
@@ -61,11 +60,5 @@ export const useConfirmProvider = () => {
         })
     }
 
-    const provider = defineComponent({
-        setup: (_, { slots }) => {
-            return () => h(ConfirmProvider as any, { bindings: bindings.value }, { ...slots })
-        }
-    })
-
-    return { provider, showConfirm }
+    return { bindings: bindings as unknown as Binding<Required<ConfirmProps>>[], showConfirm }
 }

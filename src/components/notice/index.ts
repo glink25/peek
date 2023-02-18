@@ -1,8 +1,5 @@
-// import NoticeProvider from "./NoticeProvider.vue";
+import { useNoticeProvider, NoticeProvider } from "lib"
 
-// export default NoticeProvider
+export { NoticeProvider }
 
-// export * from "./notice"
-import { useNoticeProvider } from "../../lib"
-
-export const { provider: NoticeProvider, showNotice } = useNoticeProvider()
+export const { bindings, showNotice } = useNoticeProvider()
